@@ -1,0 +1,292 @@
+@font-face{
+  font-family: Mont;
+  src: url('../fonts/GoogleSans-Regular.ttf');
+}
+@font-face{
+  font-family: Bold;
+  src: url('../fonts/GoogleSans-Bold.ttf');
+}
+/*4633af*/
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Mont;
+}
+#home h3{
+  color: #4f94dd;
+  font-family: Bold;
+}
+
+#home h1{
+  color: #044451;
+  margin-top: 100px;
+  font-family: Bold;
+}
+
+#home p{
+  color: #044451;
+  margin-top: 30px;
+}
+
+#home a{
+  background-color: #044451;
+  padding: 15px;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.button {
+  margin-left: 20px;
+  margin-top: 100px;
+}
+
+#home .bi-arrow-right{
+  color: #fff;
+}
+
+#login {
+  background-color: #e8f0f7; /* Warna latar belakang halaman */
+  min-height: 100vh;
+}
+
+.form-wrapper {
+  background-color: #fff; /* Warna kotak */
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#login h1, #login h3, #login p {
+  text-align: center;
+}
+
+#login h3{
+  color: #4f94dd;
+  font-family: Bold;
+}
+
+#login input, #login select, #login button {
+  width: 100%;
+}
+
+#login button {
+  background-color: #044451;
+  color: #fff;
+  border: none;
+}
+
+#login a {
+  color: #4f94dd;
+  text-decoration: none;
+}
+
+#login ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #656565;
+  opacity: 1; /* Firefox */
+}
+
+#login :-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: #656565;
+}
+
+#login ::-ms-input-placeholder { /* Microsoft Edge */
+  color: #656565;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin: auto;
+    background-color: #fff;
+    padding: 10px 5px;
+   position: fixed;
+    bottom: 0px;
+}
+
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease-out;
+
+}
+
+.nav-text {
+    font-size: 20px;
+    margin: auto;
+    text-align: center;
+    font-weight: 500;
+    display: none;
+    transition: all 0.3s ease;
+}
+
+.material-icons {
+    display: inline;
+    font-size: 32px;
+    transition: color .3s;
+}
+
+.form p{
+  margin-top: 20px;
+}
+
+/* */
+
+.nav-item.active {
+    flex-grow: 3;
+    border-radius: 30px;
+    background: #eee;
+    justify-content: flex-start;
+
+}
+
+.nav-item.active > .nav-text {
+    display: inline-block;
+}
+
+.nav-item.active > .material-icons.home-icon {
+    color: #153097;
+}
+
+.material-icons.home-icon ~ .nav-text {
+    color: #153097;
+}
+
+.nav-item.active > .material-icons.favorite-icon {
+    color: #153097;
+}
+
+.material-icons.favorite-icon ~ .nav-text {
+    color: #153097;
+}
+
+.nav-item.active > .material-icons.toll-icon {
+    color: #153097;
+}
+
+.material-icons.toll-icon ~ .nav-text {
+    color: #153097;
+}
+
+.nav-item.active > .material-icons.person-icon {
+    color: #153097;
+}
+
+.material-icons.person-icon ~ .nav-text {
+    color: #153097;
+}
+#dash {
+  margin-bottom: 100px;
+}
+#dash .greeting{
+  font-family: Bold;
+  margin-top: 40px;
+  color: #153097;
+}
+#dash p{
+  color: #000;
+}
+#dash .box{
+  background-color: #153097;
+  padding: 20px;
+  border-radius: 10px;
+}
+#dash .box img{
+  width: 100%;
+}
+#dash .box h6{
+  color: #fff;
+  font-size: 18px;
+}
+#dash .box button{
+  background-color: #06d1f8;
+  border: none;
+  color: #000;
+}
+#dash .tips{
+  margin-top: 30px;
+}
+#dash .tips h4{
+  font-family: Bold;
+  color: #000;
+}
+#dash .tips ol{
+  list-style: none !important;
+}
+#dash .tips li{
+  margin-top: 10px;
+  color: #000;
+}
+#dash .tips li:nth-child(odd){
+  background-color: #153097;
+  color: #fff;
+  padding-left: 10px;
+}
+
+.radio-item [type="checkbox"]{
+  display: none;
+}
+
+.radio-item + .radio-item{
+  margin-top: 15px;
+}
+.radio-item label{
+  display: block;
+  padding: 5px 40px;
+  background: #153097;
+  color: #fff;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 400;
+  width: 100%;
+  word-wrap: break-word;
+  position: relative;
+}
+.radio-item label:after,
+.radio-item label:before{
+  content: "";
+  position: absolute;
+}
+
+.radio-item label:after{
+  height: 17px;
+  width: 17px;
+  border:2px solid #fff;
+  left: 15px;
+  top: calc(50% - 9px);
+}
+.radio-item label:before{
+  background: #fff;
+  height: 8px;
+  width: 8px;
+  left: 20px;
+  top: calc(50% - 4px);
+  transform: scale(5);
+  transition: .4s ease-in-out 0s;
+  opacity: 0;
+  visibility: hidden;
+}
+.radio-item [type="checkbox"]:checked ~ label{
+  border: none;
+}
+
+.radio-item [type="checkbox"]:checked ~ label:before{
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+#dash .test button{
+  background-color: #153097;
+  border:none;
+  border-radius: 0px;
+  margin-top: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+ 
+}

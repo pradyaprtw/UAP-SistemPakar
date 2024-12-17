@@ -1,0 +1,19 @@
+@font-face{
+  font-family: Mont;
+  src: url('../../fonts/Montserrat-Regular.ttf');
+}
+@font-face{
+  font-family: Bold;
+  src: url('../../fonts/Montserrat-Bold.ttf');
+}
+.order_details{
+  padding: 20px;
+}
+.order_details h3{
+  font-size: 17px;
+  font-family: Bold;
+}
+.order_details h4{
+  font-size: 17px;
+  font-family: Bold;
+}
