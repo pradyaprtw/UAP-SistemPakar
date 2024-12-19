@@ -12,38 +12,6 @@
 	padding: 0;
 	font-family: Mont;
 }
-#home h3{
-  color: #4f94dd;
-  font-family: Bold;
-}
-
-#home h1{
-  color: #044451;
-  margin-top: 100px;
-  font-family: Bold;
-}
-
-#home p{
-  color: #044451;
-  margin-top: 30px;
-}
-
-#home a{
-  background-color: #044451;
-  padding: 15px;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 5px;
-}
-
-.button {
-  margin-left: 20px;
-  margin-top: 100px;
-}
-
-#home .bi-arrow-right{
-  color: #fff;
-}
 
 #login {
   background-color: #e8f0f7; /* Warna latar belakang halaman */
