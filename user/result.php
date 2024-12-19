@@ -38,16 +38,6 @@ $age = $row['age'];
     </style>
 </head>
 <body>
-         <script>
-          //  iziToast.success({
-          //     title: 'Success',
-          //     message: 'Meal added to cart!',
-          //     position: 'topLeft',
-          //      animateInside: true,
-          // });
-        </script> 
-   
-
     <section id="dash">
         <div class="container">
 

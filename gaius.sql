@@ -224,11 +224,10 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE IF NOT EXISTS `users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE utf16_bin NOT NULL,
-  `gsm` varchar(100) COLLATE utf16_bin NOT NULL,
+  `phone` varchar(100) COLLATE utf16_bin NOT NULL,
   `address` varchar(100) COLLATE utf16_bin NOT NULL,
   `age` varchar(100) COLLATE utf16_bin NOT NULL,
   `state` varchar(100) COLLATE utf16_bin NOT NULL,
-  `lga` varchar(100) COLLATE utf16_bin NOT NULL,
   `email` varchar(100) COLLATE utf16_bin NOT NULL,
   `pword` varchar(100) COLLATE utf16_bin NOT NULL,
   `status` varchar(11) COLLATE utf16_bin NOT NULL,
@@ -240,9 +239,9 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `gsm`, `address`, `age`, `state`, `lga`, `email`, `pword`, `status`, `booked`) VALUES
-(1, 'Jethro Adamu', '09066691043', 'No. 234 U/Zawu', '25', 'Kaduna', 'Kaduna North', 'literallycustoms@gmail.com', '123456', 'DIAGNOSED', ''),
-(2, 'Jethro Adamu', '3169742594', 'No. 234 U/Zawu', '34', 'Kaduna', 'Chikun', 'smithjaph@gmail.com', '123456', 'DIAGNOSED', '');
+INSERT INTO `users` (`id`, `name`, `phone`, `address`, `age`, `state`, `email`, `pword`, `status`) VALUES
+(1, 'Jethro Adamu', '09066691043', 'No. 234 U/Zawu', '25', 'Kaduna', 'literallycustoms@gmail.com', '123456', 'DIAGNOSED'),
+(2, 'Jethro Adamu', '3169742594', 'No. 234 U/Zawu', '34', 'Kaduna', 'smithjaph@gmail.com', '123456', 'DIAGNOSED');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

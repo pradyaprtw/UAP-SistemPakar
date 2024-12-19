@@ -10,9 +10,9 @@ $sql = "SELECT * FROM users WHERE email = '$email' LIMIT 1";
 $run = mysqli_query($dbcon,$sql);
 $row = mysqli_fetch_assoc($run);
 $name = $row['name'];
-$gsm = $row['gsm'];
+$gsm = $row['phone'];
 $state = $row['state'];
-$lga = $row['lga'];
+$state = $row['state'];
 $age = $row['age'];
 $status = $row['status'];
 ?>
@@ -33,40 +33,51 @@ $status = $row['status'];
 	<script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
 	<script src="../js/sweetalert.js"></script>  
     <script src="../dist/js/iziToast.min.js" type="text/javascript"></script>
+
 </head>
-<body>
+<body style="background-color: #e8f0f7">
 <section id="dash" class="py-5">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card shadow-lg">
-                    <div class="card-body text-center">
-                        <img src="user.svg" alt="User Avatar" class="img-fluid rounded-circle mb-3" style="width: 120px;">
-                        <h4 class="card-title">Hi, <?php echo $name; ?></h4>
+                <div class="card shadow-lg border-0">
+                    <div class="card-body p-4 text-center" style="background-color: #e8f0f7">
+                        <img src="https://bootdey.com/img/Content/avatar/avatar3.png" alt="User Avatar" class="img-fluid rounded-circle mb-4" style="width: 120px;">
+                        <h4 style="color: #044451;" class="card-title font-weight-bold">Hi, <?php echo $name; ?></h4>
+                        <p class="card-text">Your profile information</p>
 
                         <ul class="list-group list-group-flush text-start">
-                            <li class="list-group-item"><strong>Name:</strong> <?php echo $name; ?></li>
-                            <li class="list-group-item"><strong>Phone Number:</strong> <?php echo $gsm; ?></li>
-                            <li class="list-group-item"><strong>State:</strong> <?php echo $state; ?></li>
-                            <li class="list-group-item"><strong>LGA:</strong> <?php echo $lga; ?></li>
-                            <li class="list-group-item">
-                                <strong>Status:</strong> 
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong style="color: #044451;" class="font-weight-bold">Name:</strong> <?php echo $name; ?>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong style="color: #044451;" class="font-weight-bold">Phone Number:</strong> <?php echo $gsm; ?>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong style="color: #044451;" class="font-weight-bold">State:</strong> <?php echo $state; ?>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong style="color: #044451;" class="font-weight-bold">Age:</strong> <?php echo $age; ?>
+                            </li>
+                            <li class="list-group-item d-flex justify-content-between align-items-center">
+                                <strong style="color: #044451;" class="font-weight-bold">Status:</strong> 
                                 <?php if ($status=="") {
-                                    echo "<span class='text-danger'>Not Diagnosed</span>";
+                                    echo "<span class='badge bg-danger text-white'>Not Diagnosed</span>";
                                 } else {
-                                    echo "<span class='text-success'>Diagnosed</span>";
+                                    echo "<span class='badge bg-success text-white'>Diagnosed</span>";
                                 } ?>
                             </li>
                         </ul>
 
-                        <a href="logout.php" class="btn btn-danger mt-3"><span class="bi bi-lock"></span> Logout</a>
+                        <a href="logout.php" class="btn btn-danger mt-4">
+                            <span class="bi bi-lock me-2"></span> Logout
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
-
 
 <div class="nav shadow-lg">
   <div onclick="home()" class="nav-item">

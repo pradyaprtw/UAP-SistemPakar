@@ -12,7 +12,6 @@ $row = mysqli_fetch_assoc($run);
 $name = $row['name'];
 $gsm = $row['address'];
 $state = $row['state'];
-$lga = $row['lga'];
 $age = $row['age'];
 
 ?>
@@ -34,9 +33,10 @@ $age = $row['age'];
 	<script src="../js/sweetalert.js"></script>  
     <script src="../dist/js/iziToast.min.js" type="text/javascript"></script>
     <style type="text/css">
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
         body {
-            background-color: #f4f8fc;
-            font-family: 'Arial', sans-serif;
+            background-color: #e8f0f7;
+            font-family: 'Poppins', sans-serif;
         }
         .greeting {
             font-size: 24px;
@@ -58,7 +58,7 @@ $age = $row['age'];
         .box h6 {
             font-size: 18px;
             font-weight: 600;
-            color: #34495e;
+            color: #000;
             margin-top: 10px;
         }
         .tips {
@@ -71,7 +71,7 @@ $age = $row['age'];
         .tips h4 {
             font-size: 20px;
             font-weight: bold;
-            color: #2c3e50;
+            color: #000;
             margin-bottom: 10px;
         }
         .tips ol {
@@ -80,7 +80,7 @@ $age = $row['age'];
         .tips li {
             margin-bottom: 10px;
             font-size: 16px;
-            color: #34495e;
+            color: #000;
         }
 
     </style>
@@ -92,33 +92,35 @@ $age = $row['age'];
                 <div class="col-md-12 text-center">
                    <h4 class="greeting">Hi, <?php echo $name; ?>!</h4>
                    <p>Discover new technologies to enhance your health journey.</p>
-                   <div class="box d-flex align-items-center">
+                   <div class="box d-flex align-items-center" style="background-color: #fff;">
                        <div class="col-4">
                            <img src="../img/beat.gif" alt="Heart Animation">
                        </div>
                        <div class="col-8">
-                          <h6>Get diagnosed and book appointments with doctors easily and quickly!</h6>
-                          <a href="diagnose.php" class="btn btn-primary mt-3">Start Diagnosis</a>
+                          <h6 style="color: #000;">Get diagnosed and book appointments with doctors easily and quickly!</h6>
+                          <a href="diagnose.php" class="btn btn-primary mt-3" style="background-color: #044451;">Start Diagnosis</a>
                        </div>
                    </div>
+
+                   <h5 style="font-weight: 600; margin-top:20px; margin-left: 15px;">Tips to protect your heart</h5>
 
                    <div class="row">
                        <?php
                        $tips = [
-                           ['icon' => 'bi bi-x-circle-fill text-danger mr-2', 'text' => 'Don\'t smoke or use tobacco.'],
-                           ['icon' => 'bi bi-activity mr-2', 'text' => 'Aim for at least 30 to 60 minutes of activity daily.'],
-                           ['icon' => 'bi bi-egg-fried mr-2', 'text' => 'Eat a heart-healthy diet.'],
-                           ['icon' => 'bi bi-scale mr-2', 'text' => 'Maintain a healthy weight.'],
-                           ['icon' => 'bi bi-moon mr-2', 'text' => 'Get good quality sleep.'],
-                           ['icon' => 'bi bi-emoji-smile mr-2', 'text' => 'Manage stress effectively.'],
-                           ['icon' => 'bi bi-clipboard-check mr-2', 'text' => 'Get regular health screenings.'],
-                           ['icon' => 'bi bi-graph-up mr-2', 'text' => 'Check cholesterol levels.'],
-                           ['icon' => 'bi bi-speedometer mr-2', 'text' => 'Have regular blood pressure check-ups.'],
+                           ['icon' => 'bi bi-x-circle-fill text-danger mr-2', 'text' => 'Hindari merokok dan penggunaan tembakau untuk melindungi jantung Anda.'],
+                           ['icon' => 'bi bi-person-arms-up mr-2', 'text' => 'Lakukan aktivitas kardiovaskular selama setidaknya 30 menit setiap hari.'],
+                           ['icon' => 'bi bi-egg-fried mr-2', 'text' => 'Periksa tekanan darah Anda secara teratur untuk kesehatan jantung.'],
+                           ['icon' => 'bi bi-scale mr-2', 'text' => 'Kelola stres untuk mengurangi risiko penyakit jantung.'],
+                           ['icon' => 'bi bi-moon mr-2', 'text' => 'Pastikan tidur yang cukup dan berkualitas untuk mendukung kesehatan jantung.'],
+                           ['icon' => 'bi bi-emoji-smile mr-2', 'text' => 'Pertahankan berat badan yang sehat untuk mengurangi risiko penyakit jantung.'],
+                           ['icon' => 'bi bi-clipboard-check mr-2', 'text' => 'Pantau tingkat kolesterol Anda untuk mencegah masalah jantung.'],
+                           ['icon' => 'bi bi-graph-up mr-2', 'text' => 'Ikuti diet sehat untuk jantung, kaya dengan buah-buahan, sayuran, dan biji-bijian utuh.'],
+                           ['icon' => 'bi bi-speedometer mr-2', 'text' => 'Lakukan pemeriksaan rutin untuk memantau tekanan darah dan kolesterol.'],
                        ];
-                       foreach ($tips as $tip) {
+                       foreach ($tips as $index => $tip) {
                        ?>
                        <div class="col-md-3">
-                           <div class="card tips-card mt-4" style="background-color: #213F99; color: #fff;">
+                           <div class="card tips-card mt-4" style="background-color: #fff; color: #000;">
                                <div class="card-header">
                                    <h6><i class="<?php echo $tip['icon']; ?>"></i> <?php echo $tip['text']; ?></h6>
                                </div>

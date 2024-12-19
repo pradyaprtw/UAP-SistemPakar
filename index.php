@@ -19,29 +19,19 @@ include 'include/server.php';
     <script src="dist/js/iziToast.min.js" type="text/javascript"></script>
     <style type="text/css">
         body {
-            background-color: #153097; /* Fallback color */
+            background-color: #153097;
             background-image: url('img/background.jpeg');
-            background-size: cover; /* Gambar akan menutupi layar tanpa distorsi */
-            background-position: center; /* Pusatkan gambar */
-            background-repeat: no-repeat; /* Hindari pengulangan gambar */
-            margin: 0; /* Hapus margin default */
-            height: 100vh; /* Pastikan body memiliki tinggi penuh layar */
-            width: 100%; /* Lebar penuh layar */
+            background-size: cover;
+            background-position: center; 
+            background-repeat: no-repeat; 
+            margin: 0; 
+            height: 100vh; 
+            width: 100%; 
         }
 
     </style>
 </head>
 <body>
-         <script>
-          //  iziToast.success({
-          //     title: 'Success',
-          //     message: 'Meal added to cart!',
-          //     position: 'topLeft',
-          //      animateInside: true,
-          // });
-        </script> 
-   
-
 	<section id="home">
         <div class="container">
             <div class="row">

@@ -38,32 +38,28 @@ if (isset($_SESSION['email'])) {
                     <p>Input your details to create an account</p>
                     <form id="formadd" name="form1" method="post" enctype="multipart/form-data">
                         <div class="form">
-                            <input type="text" name="name" id="name" placeholder="Enter your name" class="form-control mb-3">
-                            <input type="tel" name="gsm" id="gsm" placeholder="Enter your phone number" class="form-control mb-3">
-                            <input type="text" name="address" id="address" placeholder="Enter your address" class="form-control mb-3">
-                            <input type="number" name="age" id="number" placeholder="Enter your age" class="form-control mb-3">
-                            <input type="email" name="email" id="email" placeholder="Enter your email" class="form-control mb-3">
-                            <input type="password" name="pword" id="pword" placeholder="Enter your password" class="form-control mb-3">
-                            <select onchange="toggleLGA(this);" name="state" id="state" class="form-control mb-3">
-                                <option value="" selected="selected">- Select State -</option>
-                                <option value="Abia">Abia</option>
-                                <option value="Adamawa">Adamawa</option>
-                                <option value="AkwaIbom">AkwaIbom</option>
-                                <option value="Anambra">Anambra</option>
-                                <option value="Bauchi">Bauchi</option>
-                                <option value="Bayelsa">Bayelsa</option>
-                                <option value="Benue">Benue</option>
-                                <option value="Borno">Borno</option>
-                                <option value="Cross River">Cross River</option>
-                                <option value="Delta">Delta</option>
-                                <option value="Ebonyi">Ebonyi</option>
-                                <option value="Edo">Edo</option>
-                                <option value="Ekiti">Ekiti</option>
-                                <option value="Enugu">Enugu</option>
-                                <option value="FCT">FCT</option>
-                            </select>
-                            <select name="lga" id="lga" class="form-control mb-4" required>
-                                <option>- Select Local Government -</option>
+                        <input type="text" name="name" id="name" placeholder="Masukkan Nama Anda" class="form-control mb-3">
+                            <input type="tel" name="phone" id="phone" placeholder="Masukkan Nomor Telepon Anda" class="form-control mb-3">
+                            <input type="text" name="address" id="address" placeholder="Masukkan Alamat Anda" class="form-control mb-3">
+                            <input type="number" name="age" id="number" placeholder="Masukkan Umur Anda" class="form-control mb-3">
+                            <input type="email" name="email" id="email" placeholder="Masukkan Email Anda" class="form-control mb-3">
+                            <input type="password" name="pword" id="pword" placeholder="Masukkan Password Anda" class="form-control mb-3">
+                            <select onchange="toggle(this);" name="state" id="state" class="form-control mb-3">
+                                <option value="" selected="selected">Pilih Kabupaten</option>
+                                <option value="Bandar Lampung">Bandar Lampung</option>
+                                <option value="Lampung Barat">Lampung Barat</option>
+                                <option value="Lampung Selatan">Lampung Selatan</option>
+                                <option value="Lampung Tengah">Lampung Tengah</option>
+                                <option value="Lampung Timur">Lampung Timur</option>
+                                <option value="Lampung Utara">Lampung Utara</option>
+                                <option value="Mesuji">Mesuji</option>
+                                <option value="Pesisir Barat">Pesisir Barat</option>
+                                <option value="Pesawaran">Pesawaran</option>
+                                <option value="Pringsewu">Pringsewu</option>
+                                <option value="Tanggamus">Tanggamus</option>
+                                <option value="Tulang Bawang">Tulang Bawang</option>
+                                <option value="Tulang Bawang Barat">Tulang Bawang Barat</option>
+                                <option value="Way Kanan">Way Kanan</option>
                             </select>
                             <button class="btn btn-primary btn-block btn-lg" id="save" style="background-color: #044451; font-size: 15px;">
                                 <span class="bi bi-lock" id="lock"></span>
@@ -79,7 +75,6 @@ if (isset($_SESSION['email'])) {
 </section>
 
     <br>
-<script src="../js/lga.min.js"></script>	
 <script type="text/javascript" src="../js/main.js"></script>
 <script type="text/javascript">
     $(document).ready(function(){
@@ -93,14 +88,13 @@ if (isset($_SESSION['email'])) {
                 var email = $('#email').val();
                 var pword = $("#pword").val();
                 var name = $('#name').val();
-                var gsm = $("#gsm").val();
+                var phone = $("#phone").val();
                 var age = $('#age').val();
                 var state = $("#state").val();
-                var lga = $('#lga').val();
                 var address = $("#address").val();
               
                 
-                if (email !== "" || pword !== "" || name !== "" || gsm !== "" || age !== "" || state !== ""|| lga !== "" || address !== "") {
+                if (email !== "" || pword !== "" || name !== "" || phone !== "" || age !== "" || state !== ""|| address !== "") {
                     $.ajax({
                         method: "POST",
                         url: "account_script.php",
