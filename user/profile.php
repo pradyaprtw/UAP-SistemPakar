@@ -12,7 +12,6 @@ $row = mysqli_fetch_assoc($run);
 $name = $row['name'];
 $gsm = $row['phone'];
 $state = $row['state'];
-$state = $row['state'];
 $age = $row['age'];
 ?>
 <!DOCTYPE html>
