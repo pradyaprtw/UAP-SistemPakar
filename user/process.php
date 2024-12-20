@@ -1,5 +1,4 @@
 <?php 
-
 session_start();
 
 include '../include/db_connection.php';
@@ -58,50 +57,83 @@ foreach ($selectedSymptoms as $symptomCode) {
     }
 }
 
-// Diagnostic logic
+// Initialize diagnosis with default values
 $diagnosis = [
     'disease_code' => 'N/A',
     'comment' => 'Low risk, but recommend a comprehensive medical check-up',
     'treatment' => 'General health assessment, preventive screening, lifestyle review.'
 ];
 
-// Comprehensive diagnostic rules
-if ($scores['Gagal Jantung'] >= 10 && $scores['Heart Valve Disease'] >= 5 && $scores['Aritmia'] >= 10) {
-    $diagnosis = [
-        'disease_code' => 'P001/P002/P003',
-        'comment' => 'High risk of multiple heart conditions (Gagal Jantung, Heart Valve Disease, Aritmia)',
-        'treatment' => 'Comprehensive cardiac evaluation, multiple specialist consultations required.'
-    ];
-} elseif ($scores['Gagal Jantung'] >= 10) {
-    $diagnosis = [
-        'disease_code' => 'P001',
-        'comment' => 'High risk of Gagal Jantung (Heart Failure)',
-        'treatment' => 'Medication, lifestyle modifications, potential cardiac rehabilitation.'
-    ];
-} elseif ($scores['Heart Valve Disease'] >= 5) {
-    $diagnosis = [
-        'disease_code' => 'P002',
-        'comment' => 'High risk of Heart Valve Disease',
-        'treatment' => 'Echocardiogram, potential valve repair or replacement, medication.'
-    ];
-} elseif ($scores['Aritmia'] >= 10) {
-    $diagnosis = [
-        'disease_code' => 'P003',
-        'comment' => 'High risk of Aritmia (Cardiac Dysrhythmia)',
-        'treatment' => 'ECG, heart rhythm monitoring, medication, possible pacemaker.'
-    ];
-} elseif ($scores['Perikarditis'] >= 5) {
-    $diagnosis = [
-        'disease_code' => 'P004',
-        'comment' => 'High risk of Perikarditis',
-        'treatment' => 'Anti-inflammatory medication, rest, potential antibiotics.'
-    ];
-} elseif ($scores['Jantung Koroner'] >= 5) {
-    $diagnosis = [
-        'disease_code' => 'P005',
-        'comment' => 'High risk of Jantung Koroner (Coronary Heart Disease)',
-        'treatment' => 'Lifestyle changes, medication, potential angioplasty or stent placement.'
-    ];
+// Get the highest scoring condition and its score
+$maxScore = max($scores);
+$highestCondition = array_search($maxScore, $scores);
+
+// Set minimum threshold for diagnosis
+$threshold = 5;
+
+// Diagnostic logic based on highest score
+if ($maxScore >= $threshold) {
+    // Check for multiple severe conditions first
+    if ($scores['Gagal Jantung'] >= 8 && $scores['Heart Valve Disease'] >= 5 && $scores['Aritmia'] >= 8) {
+        $diagnosis = [
+            'disease_code' => 'P001/P002/P003',
+            'comment' => 'High risk of multiple heart conditions (Gagal Jantung, Heart Valve Disease, Aritmia)',
+            'treatment' => 'Comprehensive cardiac evaluation, multiple specialist consultations required.'
+        ];
+    } else {
+        // Individual condition diagnosis based on highest score
+        switch($highestCondition) {
+            case 'Gagal Jantung':
+                if ($scores['Gagal Jantung'] >= 8) {
+                    $diagnosis = [
+                        'disease_code' => 'P001',
+                        'comment' => 'High risk of Gagal Jantung (Heart Failure)',
+                        'treatment' => 'Medication, lifestyle modifications, potential cardiac rehabilitation.'
+                    ];
+                }
+                break;
+                
+            case 'Heart Valve Disease':
+                if ($scores['Heart Valve Disease'] >= 5) {
+                    $diagnosis = [
+                        'disease_code' => 'P002',
+                        'comment' => 'High risk of Heart Valve Disease',
+                        'treatment' => 'Echocardiogram, potential valve repair or replacement, medication.'
+                    ];
+                }
+                break;
+                
+            case 'Aritmia':
+                if ($scores['Aritmia'] >= 8) {
+                    $diagnosis = [
+                        'disease_code' => 'P003',
+                        'comment' => 'High risk of Aritmia (Cardiac Dysrhythmia)',
+                        'treatment' => 'ECG, heart rhythm monitoring, medication, possible pacemaker.'
+                    ];
+                }
+                break;
+                
+            case 'Perikarditis':
+                if ($scores['Perikarditis'] >= 5) {
+                    $diagnosis = [
+                        'disease_code' => 'P004',
+                        'comment' => 'High risk of Perikarditis',
+                        'treatment' => 'Anti-inflammatory medication, rest, potential antibiotics.'
+                    ];
+                }
+                break;
+                
+            case 'Jantung Koroner':
+                if ($scores['Jantung Koroner'] >= 5) {
+                    $diagnosis = [
+                        'disease_code' => 'P005',
+                        'comment' => 'High risk of Jantung Koroner (Coronary Heart Disease)',
+                        'treatment' => 'Lifestyle changes, medication, potential angioplasty or stent placement.'
+                    ];
+                }
+                break;
+        }
+    }
 }
 
 // Prepare database insertion

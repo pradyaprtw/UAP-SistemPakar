@@ -9,13 +9,7 @@
             background-color: #153097;
             background-image: url('img/background.jpeg');
             background-size: cover;
-<<<<<<< HEAD
-            background-position: center; 
-            background-repeat: no-repeat; 
-            margin: 0; 
-            height: 100vh; 
-            width: 100%; 
-=======
+
             background-position: center;
             background-repeat: no-repeat;
             margin: 0;
@@ -25,7 +19,6 @@
             justify-content: flex-start;
             font-family: Arial, sans-serif;
             color: #ffffff;
->>>>>>> 25af23fde09ecd8d4ef8598d32a6afe2eb22c4e6
         }
 
         .container {
@@ -94,33 +87,6 @@
     </style>
 </head>
 <body>
-<<<<<<< HEAD
-	<section id="home">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>Heart Disease <br></h1>
-                    <h3>Diagnosis App</h3>
-                    <p>Sistem pakar berbasis web ini dirancang untuk membantu pengguna menganalisis <br>
-                       gejala penyakit jantung secara cepat dan memberikan diagnosa awal yang akurat <br>
-                       berdasarkan data medis yang telah teruji, sehingga dapat menjadi alat pendukung <br>
-                       yang efektif bagi masyarakat dalam mengambil langkah awal penanganan dan <br>
-                       konsultasi lebih lanjut dengan tenaga medis profesional. </p>
-                </div>
-                <div class="button">
-                     <a href="user/">Get started <span class="bi bi-arrow-right"></span></a>
-                </div>
-                <div class="col-6">
-                    <div class="box-2 shadow">
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-	
-<script type="text/javascript" src="js/main.js"></script>
-=======
     <div class="container">
         <h1>Heart Disease</h1>
         <h3>Diagnosis App</h3>
@@ -132,6 +98,5 @@
         </p>
         <a href="user/">Get started <span class="bi bi-arrow-right">&#8594;</span></a>
     </div>
->>>>>>> 25af23fde09ecd8d4ef8598d32a6afe2eb22c4e6
 </body>
 </html>

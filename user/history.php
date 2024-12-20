@@ -24,13 +24,12 @@ $sqld = "SELECT * FROM diagnosis WHERE email = '$email' ORDER BY id DESC LIMIT 1
 $rund = mysqli_query($dbcon, $sqld);
 $rowd = mysqli_fetch_assoc($rund);
 
-// Hitung total skor untuk setiap penyakit
-$A = $rowd['gagal_jantung1'] + $rowd['gagal_jantung2'] + $rowd['gagal_jantung3']; // Gagal Jantung
-$B = $rowd['valve_disease1'] + $rowd['valve_disease2']; // Heart Valve Disease
-$C = $rowd['aritmia1'] + $rowd['aritmia2'] + $rowd['aritmia3']; // Aritmia
-$D = $rowd['perikarditis1'] + $rowd['perikarditis2']; // Perikarditis
-$E = $rowd['jantung_koroner1'] + $rowd['jantung_koroner2']; // Jantung Koroner
-$F = $rowd['additional1'] + $rowd['additional2']; // Additional Symptoms
+// Fetch scores from the diagnosis table
+$gagal_jantung_score = $rowd['gagal_jantung_score']; 
+$valve_disease_score = $rowd['valve_disease_score']; 
+$aritmia_score = $rowd['aritmia_score']; 
+$perikarditis_score = $rowd['perikarditis_score']; 
+$jantung_koroner_score = $rowd['jantung_koroner_score']; 
 ?>
 <!DOCTYPE html>
 <html>
@@ -49,67 +48,125 @@ $F = $rowd['additional1'] + $rowd['additional2']; // Additional Symptoms
     <script type="text/javascript" src="../bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../js/sweetalert.js"></script>  
     <script src="../dist/js/iziToast.min.js" type="text/javascript"></script>
-    <style type="text/css">
-        .tstchk span {
-            font-family: Bold;
+    <style>
+        body {
+            background-color: #e8f0f7;
+            font-family: 'Poppins', sans-serif;
         }
-        .tstchk p {
-            font-size: 13px;
+        .results-card {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 800px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+        .diagnosis-header {
+            background-color: #044451;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        .score-bar {
+            height: 20px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        .score-fill {
+            height: 100%;
+            background-color: #044451;
+            transition: width 0.3s ease;
+        }
+        .recommendation-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #044451;
+            padding: 15px;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
     <section id="dash">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h4 class="greeting">Hi <?php echo $name; ?></h4>
-                    <p>Berikut adalah hasil diagnosis Anda:</p>
-                    <div class="results" style="background-color: #f5f5f5; padding: 20px;">
-                        <h5 style="font-family: Bold; border-left: 4px solid #153097; padding-left: 10px;">
-                            <?php echo $rowd['recommendation']; ?>
-                        </h5>
-                        <div class="tstchk">
-                            <p style="font-size: 14px;"><?php echo $rowd['binfo']; ?></p>
-                        </div>
+    <div class="container">
+    <div class="results-card">
+        <div class="diagnosis-header">
+            <h4 class="mb-0">Hasil Diagnosis - <?php echo htmlspecialchars($name); ?></h4>
+        </div>
 
-                        <table class="table table-striped" style="color: #153097;">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">Penyakit</th>
-                                    <th scope="col">Skor</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Gagal Jantung</td>
-                                    <td><?php echo $A; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Penyakit Katup Jantung</td>
-                                    <td><?php echo $B; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Aritmia</td>
-                                    <td><?php echo $C; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Perikarditis</td>
-                                    <td><?php echo $D; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Jantung Koroner</td>
-                                    <td><?php echo $E; ?></td>
-                                </tr>
-                                <tr>
-                                    <td>Gejala Tambahan</td>
-                                    <td><?php echo $F; ?></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div> 
+        <div class="recommendation-box">
+            <h5><?php echo htmlspecialchars($rowd['recommendation']); ?></h5>
+            <p class="mb-0"><?php echo htmlspecialchars($rowd['binfo']); ?></p>
+        </div>
+
+        <h5 class="mt-4 mb-3">Analisis Gejala:</h5>
+
+        <!-- Gagal Jantung -->
+        <div class="mb-3">
+            <div class="d-flex justify-content-between">
+                <span>Gagal Jantung</span>
+                <span><?php echo number_format($gagal_jantung_score, 1); ?>/10</span>
+            </div>
+            <div class="score-bar">
+                <div class="score-fill" style="width: <?php echo ($gagal_jantung_score * 10); ?>%"></div>
+            </div>
+        </div>
+
+        <!-- Penyakit Katup Jantung -->
+        <div class="mb-3">
+            <div class="d-flex justify-content-between">
+                <span>Penyakit Katup Jantung</span>
+                <span><?php echo number_format($valve_disease_score, 1); ?>/10</span>
+            </div>
+            <div class="score-bar">
+                <div class="score-fill" style="width: <?php echo ($valve_disease_score * 10); ?>%"></div>
+            </div>
+        </div>
+
+        <!-- Aritmia -->
+        <div class="mb-3">
+            <div class="d-flex justify-content-between">
+                <span>Aritmia</span>
+                <span><?php echo number_format($aritmia_score, 1); ?>/10</span>
+            </div>
+            <div class="score-bar">
+                <div class="score-fill" style="width: <?php echo ($aritmia_score * 10); ?>%"></div>
+            </div>
+        </div>
+
+        <!-- Perikarditis -->
+        <div class="mb-3">
+            <div class="d-flex justify-content-between">
+                <span>Perikarditis</span>
+                <span><?php echo number_format($perikarditis_score, 1); ?>/10</span>
+            </div>
+            <div class="score-bar">
+                <div class="score-fill" style="width: <?php echo ($perikarditis_score * 10); ?>%"></div>
+            </div>
+        </div>
+
+        <!-- Jantung Koroner -->
+        <div class="mb-3">
+            <div class="d-flex justify-content-between">
+                <span>Jantung Koroner</span>
+                <span><?php echo number_format($jantung_koroner_score, 1); ?>/10</span>
+            </div>
+            <div class="score-bar">
+                <div class="score-fill" style="width: <?php echo ($jantung_koroner_score * 10); ?>%"></div>
+            </div>
+        </div>
+
+        <!-- Gejala Tambahan -->
+        <div class="mb-3">
+            <div class="d-flex justify-content-between">
+                <span>Gejala Tambahan</span>
+                <span><?php echo number_format($additional_score, 1); ?>/10</span>
+            </div>
+            <div class="score-bar">
+                <div class="score-fill" style="width: <?php echo ($additional_score * 10); ?>%"></div>
+            </div>
         </div>
     </section>
 
@@ -159,4 +216,3 @@ $F = $rowd['additional1'] + $rowd['additional2']; // Additional Symptoms
     </script>
 </body>
 </html>
-
