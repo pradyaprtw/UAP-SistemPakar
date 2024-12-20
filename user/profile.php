@@ -12,9 +12,7 @@ $row = mysqli_fetch_assoc($run);
 $name = $row['name'];
 $gsm = $row['phone'];
 $state = $row['state'];
-$state = $row['state'];
 $age = $row['age'];
-$status = $row['status'];
 ?>
 <!DOCTYPE html>
 <html>
@@ -58,14 +56,6 @@ $status = $row['status'];
                             </li>
                             <li class="list-group-item d-flex justify-content-between align-items-center">
                                 <strong style="color: #044451;" class="font-weight-bold">Age:</strong> <?php echo $age; ?>
-                            </li>
-                            <li class="list-group-item d-flex justify-content-between align-items-center">
-                                <strong style="color: #044451;" class="font-weight-bold">Status:</strong> 
-                                <?php if ($status=="") {
-                                    echo "<span class='badge bg-danger text-white'>Not Diagnosed</span>";
-                                } else {
-                                    echo "<span class='badge bg-success text-white'>Diagnosed</span>";
-                                } ?>
                             </li>
                         </ul>
 
