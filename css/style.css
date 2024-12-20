@@ -148,17 +148,7 @@
 .material-icons.person-icon ~ .nav-text {
     color: #153097;
 }
-#dash {
-  margin-bottom: 100px;
-}
-#dash .greeting{
-  font-family: Bold;
-  margin-top: 40px;
-  color: #153097;
-}
-#dash p{
-  color: #000;
-}
+
 #dash .box{
   background-color: #153097;
   padding: 20px;
