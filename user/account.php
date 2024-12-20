@@ -224,19 +224,19 @@ $age = $row['age'];
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
-                <h4 class="greeting" style="color: #044451;">Hi, <?php echo $name; ?>!</h4>
-                   <p>Discover new technologies to enhance your health journey.</p>
+                <h4 class="greeting" style="color: #044451;">Hai, <?php echo $name; ?>!</h4>
+                   <p>Temukan teknologi baru untuk meningkatkan perjalanan kesehatan Anda.</p>
                    <div class="box d-flex align-items-center" style="background-color: #fff;">
                        <div class="col-4">
                            <img src="../img/beat.gif" alt="Heart Animation">
                        </div>
                        <div class="col-8">
-                          <h6 style="color: #000;">Get diagnosed and book appointments with doctors easily and quickly!</h6>
-                          <a href="diagnose.php" class="btn btn-primary mt-3" style="background-color: #044451;">Start Diagnosis</a>
+                          <h6 style="color: #000;">Dapatkan diagnosis dan buat janji temu dengan dokter dengan mudah dan cepat!</h6>
+                          <a href="diagnose.php" class="btn btn-primary mt-3" style="background-color: #044451;">Mulai Diagnosis</a>
                        </div>
                    </div>
 
-                   <h5 style="font-weight: 600; margin-top:20px; margin-left: 15px;">Tips to protect your heart</h5>
+                   <h5 style="font-weight: 600; margin-top:20px; margin-left: 15px;">Tips untuk melindungi jantung Anda</h5>
 
                    <div class="row">
                        <?php

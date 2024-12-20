@@ -13,8 +13,6 @@ if (isset($_SESSION['email'])) {
   	<title>Medical Diagnosis</title>
 	<link rel="stylesheet" type="text/css" href="../bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="../bootstrap-icons/bootstrap-icons.css">
-	<link href="../css/animate.min.css" rel="stylesheet">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
     <link rel="stylesheet" href="../dist/css/iziToast.min.css">
 	<script type="text/javascript" src="../js/jquery.min.js"></script>
 	<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
@@ -22,9 +20,27 @@ if (isset($_SESSION['email'])) {
 	<script src="../js/sweetalert.js"></script>  
     <script src="../dist/js/iziToast.min.js" type="text/javascript"></script>
     <style type="text/css">
-        body{
-          background-color: #ffffff;
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
         }
+        body {
+            background-image: url('jantung.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        input::placeholder {
+            font-size: 12px; 
+            color: #888;
+        }
+        
+        .form-wrapper h3,p {
+            text-align: center;
+            color: #044451;
+        }
+
     </style>
 </head>
 <body>
@@ -34,8 +50,8 @@ if (isset($_SESSION['email'])) {
         <div class="row justify-content-center align-items-center">
             <div class="col-md-6">
                 <div class="form-wrapper" style="background-color: #f7f9fc; border-radius: 10px; padding: 30px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); ">
-                    <h3>Create Account</h3>
-                    <p>Input your details to create an account</p>
+                    <h3>Buat Akun</h3>
+                    <p>Masukkan detail Anda untuk membuat akun</p>
                     <form id="formadd" name="form1" method="post" enctype="multipart/form-data">
                         <div class="form">
                         <input type="text" name="name" id="name" placeholder="Masukkan Nama Anda" class="form-control mb-3">
@@ -44,8 +60,8 @@ if (isset($_SESSION['email'])) {
                             <input type="number" name="age" id="number" placeholder="Masukkan Umur Anda" class="form-control mb-3">
                             <input type="email" name="email" id="email" placeholder="Masukkan Email Anda" class="form-control mb-3">
                             <input type="password" name="pword" id="pword" placeholder="Masukkan Password Anda" class="form-control mb-3">
-                            <select onchange="toggle(this);" name="state" id="state" class="form-control mb-3">
-                                <option value="" selected="selected">Pilih Kabupaten</option>
+                            <select onchange="toggle(this);" name="state" id="state" class="form-control mb-3" style="font-size: 12px;">
+                                <option value="" selected="selected" style="font-size:12px">Pilih Kabupaten</option>
                                 <option value="Bandar Lampung">Bandar Lampung</option>
                                 <option value="Lampung Barat">Lampung Barat</option>
                                 <option value="Lampung Selatan">Lampung Selatan</option>
@@ -63,9 +79,9 @@ if (isset($_SESSION['email'])) {
                             </select>
                             <button class="btn btn-primary btn-block btn-lg" id="save" style="background-color: #044451; font-size: 15px;">
                                 <span class="bi bi-lock" id="lock"></span>
-                                Create account
+                                Buat Akun
                             </button>
-                            <p class="mt-3 text-center">Already have an account? <a href="login.php" style="color: #4f94dd;">Login Here</a></p>
+                            <p class="mt-3 text-center"> Sudah punya akun? <a href="login.php" style="color: #4f94dd;">Masuk di sini</a></p>
                         </div>
                     </form>
                 </div>

@@ -5,11 +5,15 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>Medical Diagnosis</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
         body {
             background-color: #153097;
             background-image: url('img/background.jpeg');
             background-size: cover;
-
             background-position: center;
             background-repeat: no-repeat;
             margin: 0;
@@ -29,7 +33,7 @@
         }
 
         h1 {
-            color: #153097;
+            color: #044451;
             font-size: 2.5rem;
             margin: 0;
             font-weight: bold;
@@ -88,8 +92,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Heart Disease</h1>
-        <h3>Diagnosis App</h3>
+        <h1>Penyakit Jantung</h1>
+        <h3>Aplikasi Web Diagnosis</h3>
         <p>Sistem pakar berbasis web ini dirancang untuk membantu pengguna menganalisis
             gejala penyakit jantung secara cepat dan memberikan diagnosa awal yang akurat
             berdasarkan data medis yang telah teruji, sehingga dapat menjadi alat pendukung
